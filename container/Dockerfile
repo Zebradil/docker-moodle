@@ -7,7 +7,7 @@ LABEL maintainer="German Lashevich <german.lashevich@gmail.com>" \
       org.label-schema.description="Lightweight Moodle container based on Alpine Linux" \
       org.label-schema.vcs-url="https://github.com/Zebradil/docker-moodle.git"
 
-EXPOSE 80 443
+EXPOSE 80
 
 VOLUME ["/var/moodledata"]
 
@@ -15,7 +15,6 @@ RUN apk update \
  && apk add --no-cache \
                        git \
                        apache2 \
-                       apache2-ssl \
                        php7 \
                        php7-apache2 \
                        php7-iconv \
