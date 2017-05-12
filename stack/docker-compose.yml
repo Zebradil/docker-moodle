@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+    db:
+        image: mysql
+        volumes:
+            - ./.data/db:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        deploy:
+            placement:
+                constraints: [node.role == manager]
+    app:
+        image: zebradil/moodle:3.2
+        ports:
+            - 80:80
+        volumes:
+            - ./.data/app:/var/moodledata
+        environment:
+            MOODLE_DB_TYPE: mysqli
+            MOODLE_DB_HOST: db
+            MOODLE_DB_NAME: ${MYSQL_DATABASE}
+            MOODLE_DB_USER: ${MYSQL_USER}
+            MOODLE_DB_PASS: ${MYSQL_PASSWORD}
+            MOODLE_URL: ${MOODLE_URL}
