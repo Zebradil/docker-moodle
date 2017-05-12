@@ -41,6 +41,9 @@ RUN cd /tmp \
  && chown apache:apache -R /var/www/localhost/htdocs \
  && mkdir /run/apache2
 
+RUN ln -sf /proc/self/fd/1 /var/log/apache2/access.log \
+ && ln -sf /proc/self/fd/1 /var/log/apache2/error.log
+
 COPY config-dist.php /var/www/localhost/htdocs/config.php
 COPY run.sh /opt/apache2/run.sh
 
