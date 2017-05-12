@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:edge
 
 LABEL maintainer="german.lashevich@gmail.com" \
       version="1.0" \
