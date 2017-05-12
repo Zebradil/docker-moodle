@@ -4,7 +4,6 @@ LABEL maintainer="german.lashevich@gmail.com" \
       version="1.0" \
       description=""
 
-VOLUME ["/var/moodledata"]
 EXPOSE 80 443
 
 RUN apk update \
@@ -37,9 +36,12 @@ RUN cd /tmp \
  && git clone -b MOODLE_32_STABLE git://git.moodle.org/moodle.git --depth=1 \
  && rm -rf /var/www/localhost/htdocs \
  && mv /tmp/moodle /var/www/localhost/htdocs \
+ && mkdir /var/moodledata \
  && chown apache:apache -R /var/www/localhost/htdocs /var/moodledata \
  && mkdir /run/apache2
 
 COPY config-dist.php /var/www/localhost/htdocs/config.php
+
+VOLUME ["/var/moodledata"]
 
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
