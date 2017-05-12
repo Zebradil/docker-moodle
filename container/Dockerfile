@@ -1,8 +1,11 @@
 FROM alpine:edge
 
-LABEL maintainer="german.lashevich@gmail.com" \
-      version="1.0" \
-      description=""
+LABEL maintainer="German Lashevich <german.lashevich@gmail.com>" \
+      org.label-schema.schema-version="1.0.0-rc.1" \
+      org.label-schema.name="zebradil/docker-moodle" \
+      org.label-schema.version="3.2-1" \
+      org.label-schema.description="Lightweight Moodle container based on Alpine Linux" \
+      org.label-schema.vcs-url="https://github.com/Zebradil/docker-moodle.git"
 
 EXPOSE 80 443
 
