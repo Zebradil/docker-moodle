@@ -34,6 +34,8 @@ RUN apk update \
                        php7-soap \
                        php7-intl \
                        php7-opcache \
+                       php7-tokenizer \
+                       php7-simplexml \
                        php7-ctype
 
 RUN cd /tmp \
