@@ -4,7 +4,7 @@ docker-moodle
 All you need to get your lightweight [Moodle][moodle] instance.
 ---
 
-Moodle 3.2
+Moodle
 ===
 
 Lightweight docker container based on [Alpine Linux][alpine] includes Moodle 3.2, Apache,
@@ -21,7 +21,7 @@ $ docker run -p 80:80
              -e "MOODLE_DB_USER=moodle" \
              -e "MOODLE_DB_PASS=moodlepass" \
              -e "MOODLE_URL=http://localhost" \
-              zebradil/moodle:3.2
+              zebradil/moodle
 ```
 
 As you see, some environment variables should be set. All of them must be
@@ -44,12 +44,11 @@ $ MYSQL_ROOT_PASSWORD=root \
 
 Notice, that there are another set of environment variables here.
 
-Moodle 3.2 with [Coderunner][coderunner] plugin
+Moodle with [Coderunner][coderunner] plugin
 ---
 
-All the same, but name and compose file:
-- `zebradil/moodle-coderunner:3.2`
-- `docker-compose-coderunner.yml`
+All the same, but use another tag:
+- `zebradil/moodle:coderunner
 
 Inspired by bunch of [sergiogomez's docker-moodle forks](https://github.com/sergiogomez/docker-moodle).
 
